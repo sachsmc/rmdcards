@@ -13,6 +13,7 @@ float: left;
 position: relative;
 margin-left: 10px;
 margin-right: 10px;
+transform: translate(0, 0);
 }
 
 .section.level3 {

@@ -14,7 +14,7 @@ spacing = function(divup, divdown){
 moveIt = function(div, amt){
 	
 	if(-amt > 20 + 14*2){
-		$(div).css("-webkit-transform", "translate(0, " + (amt+14*2+20) + "px)");
+		$(div).css("transform", "translate(0px, " + (amt+14*2+20) + "px)");
 	}
 	
 }
@@ -24,7 +24,7 @@ colMat = function(divs){
 	var divids = [];
 	divs.each(function(){ 
 		
-		$(this).css("-webkit-transform", "translate(0, 0)");
+		$(this).css("transform", "translate(0px, 0px)");
 		divids.push("#" + $(this).attr("id"));
 	
 	});
@@ -43,7 +43,7 @@ colMat = function(divs){
 		return heights[index] <= Math.min.apply(null, heights);
 		
 	})
-	
+	console.log(topdivs);
 	// for each column, find other divs in that column, 
 	// and move up in order of distance from top
 	
@@ -71,6 +71,7 @@ colMat = function(divs){
 				
 				moveIt(coldivs[dexof[j]], dists[dexof[j]]);
 				
+				
 			} else {
 				
 				moveIt(coldivs[dexof[j]], spacing(coldivs[dexof[j - 1]], coldivs[dexof[j]]));
@@ -83,7 +84,7 @@ colMat = function(divs){
 	}
 }
 
-colMat($(".section"));
+
 var resizeTimer;
 $(window).resize(function(){ 
 	clearTimeout(resizeTimer);
